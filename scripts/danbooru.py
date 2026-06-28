@@ -5,9 +5,9 @@ import requests
 # DANBOORU SETTINGS
 # =========================
 
-TAG = "hirasawa_yui"
+TAG = "hirasawa_yui nude"
 
-LIMIT = 100
+LIMIT = 50
 
 API_URL = "https://danbooru.donmai.us/posts.json"
 
