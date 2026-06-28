@@ -1,42 +1,89 @@
 import requests
 
 
+# =========================
+# DANBOORU SETTINGS
+# =========================
+
 TAG = "hirasawa_yui"
 
-API = "https://danbooru.donmai.us/posts.json"
+LIMIT = 100
 
+API_URL = "https://danbooru.donmai.us/posts.json"
+
+
+
+# =========================
+# GET POSTS
+# =========================
 
 params = {
     "tags": TAG,
-    "limit": 50
+    "limit": LIMIT
 }
 
 
-data = requests.get(API, params=params).json()
+response = requests.get(
+    API_URL,
+    params=params
+)
 
 
-markdown = f"""
-# Hirasawa Yui Gallery
+posts = response.json()
 
-Generated automatically from Danbooru.
+
+
+# =========================
+# CREATE README
+# =========================
+
+content = f"""
+
+# 🎨 Danbooru Gallery
+
+Tag:
+`{TAG}`
+
+
+Automatically updated using Danbooru API.
+
 
 """
 
 
-for post in data:
+for post in posts:
 
-    url = post.get("file_url")
 
-    if url:
+    image = post.get("file_url")
 
-        markdown += f"""
-<img src="{url}" width="300">
+
+    if image:
+
+
+        content += f"""
+
+<img src="{image}" width="300">
+
 
 """
 
 
-with open("README.md", "w", encoding="utf-8") as f:
-    f.write(markdown)
+
+# =========================
+# WRITE README
+# =========================
+
+with open(
+    "README.md",
+    "w",
+    encoding="utf-8"
+) as file:
 
 
-print("README updated")
+    file.write(content)
+
+
+
+print(
+    f"Generated {len(posts)} images"
+)
