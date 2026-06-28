@@ -13,10 +13,6 @@ API_URL = "https://danbooru.donmai.us/posts.json"
 
 
 
-# =========================
-# REQUEST
-# =========================
-
 headers = {
     "User-Agent": "github-actions-danbooru-gallery/1.0"
 }
@@ -38,52 +34,31 @@ response = requests.get(
 
 
 
-# DEBUG
-
-print("Status:", response.status_code)
-
-print(
-    "Response:",
-    response.text[:300]
-)
-
-
-
 if response.status_code != 200:
-
     raise Exception(
         f"Danbooru error {response.status_code}"
     )
 
 
 
-try:
-
-    posts = response.json()
-
-
-except Exception:
-
-    raise Exception(
-        "Response bukan JSON dari Danbooru"
-    )
+posts = response.json()
 
 
 
 # =========================
-# GENERATE README
+# README CONTENT
 # =========================
-
 
 content = f"""
 # 🎨 Danbooru Gallery
 
 Tag:
-
 `{TAG}`
 
 
-Automatically updated.
+<div align="center">
+
+<div style="display:flex; flex-wrap:wrap; gap:10px;">
 
 """
 
@@ -102,8 +77,7 @@ for post in posts:
 
 
         content += f"""
-
-<img src="{image}" width="150">
+<img src="{image}" width="250">
 
 """
 
@@ -112,18 +86,27 @@ for post in posts:
 
 
 
-# =========================
-# SAVE
-# =========================
+content += """
 
+</div>
+
+</div>
+
+"""
+
+
+
+# =========================
+# SAVE README
+# =========================
 
 with open(
     "README.md",
     "w",
     encoding="utf-8"
-) as f:
+) as file:
 
-    f.write(content)
+    file.write(content)
 
 
 
