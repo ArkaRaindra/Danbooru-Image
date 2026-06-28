@@ -5,7 +5,7 @@ import requests
 # DANBOORU SETTINGS
 # =========================
 
-TAG = "hirasawa_yui nude"
+TAG = "hirasawa_yui"
 
 LIMIT = 50
 
