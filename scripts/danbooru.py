@@ -103,7 +103,7 @@ for post in posts:
 
         content += f"""
 
-<img src="{image}" width="300">
+<img src="{image}" width="150">
 
 """
 
