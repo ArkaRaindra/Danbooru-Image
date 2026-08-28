@@ -10,6 +10,9 @@ Tag:
 <div style="display:flex; flex-wrap:wrap; gap:10px;">
 
 
+<img src="https://cdn.donmai.us/original/59/36/593695cf9c398ef29175aecdbd2af7ab.jpg" width="250">
+
+
 <img src="https://cdn.donmai.us/original/48/88/488815871245ae3462e68d7e6f26e833.jpg" width="250">
 
 
@@ -155,9 +158,6 @@ Tag:
 
 
 <img src="https://cdn.donmai.us/original/44/4f/444f2d2af98929934f6b253d4b0619ef.jpg" width="250">
-
-
-<img src="https://cdn.donmai.us/original/2f/01/2f011f04a2046f03380a63acd50bb473.mp4" width="250">
 
 
 
